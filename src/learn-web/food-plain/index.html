@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Food-API-Demo</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script type="module" src="assets/main.js"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Food-API</h1>
+        <div class="field">
+          <label class="label" for="query">Suchbegriff</label>
+          <div class="control">
+            <input
+              id="query"
+              class="input"
+              type="text"
+              placeholder="Suchbegriff"
+              value=""
+            />
+          </div>
+        </div>
+        <div class="control">
+          <button class="button">Suche</button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h2 class="title">Ergebnisse</h2>
+        <div class="tile is-flex-wrap-wrap" id="results">
+          
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
