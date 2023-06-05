@@ -31,13 +31,13 @@
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <section>
+    <header>
       <div class="jumbotron">
         <div class="container">
           <h1>Hallo Vue!</h1>
         </div>
       </div>
-    </section>
+    </header>
     <section>
       <h2>Spielwiese</h2>
       <article>
@@ -76,10 +76,11 @@
         <food-item
           v-if="currentItem"
           :title="currentItem.title"
-          :nutritionScore="currentItem.nutritionScore"
+          :score="currentItem.nutritionScore"
           :url="currentItem.url"
         />
       </article>
     </section>
+    
   </body>
 </html>
