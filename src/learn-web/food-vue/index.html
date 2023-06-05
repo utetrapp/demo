@@ -27,9 +27,10 @@
     <section>
       <div class="container" id="app">
         <h1 class="title">Finde mehr über dein Essen heraus :)</h1>
-        <label class="label" for="query">Suchbegriff</label>
-        <input v-model="query" id="query" class="form-control" />
-
+        <div class="mb-3">
+          <label class="form-label" for="query">Suchbegriff</label>
+          <input v-model="query" id="query" class="form-control" />
+        </div>
         <p v-if="status">{{status}}</p>
         <div v-if="foodList">
           <div class="d-flex flex-row mb-3 flex-wrap">
