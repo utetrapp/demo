@@ -8,5 +8,5 @@ createApp({
       answer: 42
     };
   },
-  template: `<p>the answer is <h2>{{answer}}</h2></p>`
+  template: `<p>the answer is {{answer}} </p>`
 }).mount("#appTemplateExample");
