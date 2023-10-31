@@ -39,4 +39,10 @@ First I took the components as they were in the first usage of Vue.
 5. Adapt imports and paths of router/index.js. Add linkActiveClass for bootstrap.
 6. Clean App.vue and add classes of bootstrap.
 
-For now Pinia is not really used. However, the functions of before are implemented using the new structure.
+In the next step I really used Pinia. Then it was possible to separate the search bar from the result list and e.g. put the search bar in the header. Using Pinia is much simpler with the composition API, hence I switched to the composition API.
+
+1. Rewrite FoodItem to use the composition API.
+2. Add food store. Use async/await for better readability.
+3. Add SearchBar and use the food store. Add a button to show click.
+4. Rewrite FoodList to use composition API and food store.
+

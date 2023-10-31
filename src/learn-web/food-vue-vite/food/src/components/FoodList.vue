@@ -1,40 +1,18 @@
-<script>
+<script setup>
+import { watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useFoodListStore } from '@/stores/food'
 //Item.vue defines an export default, here we name this default to be FoodItem
 import FoodItem from './FoodItem.vue'
 
-export default {
-  name: 'FoodList',
-  components: { FoodItem },
-  data: () => ({
-    query: '',
-    status: '',
-    foodList: []
-  }),
-  watch: {
-    query: 'fetchData'
-  },
-  methods: {
-    fetchData() {
-      this.status = 'fetching ...'
-      fetch(
-        `https://de.openfoodfacts.org/cgi/search.pl?action=process&search_terms=${this.query}&sort_by=unique_scans_n&fields=id,product_name_de,nutriscore_grade,image_front_small_url&json=true`
-      )
-        .then((response) => {
-          this.status = response.status
-          return response.json()
-        })
-        .then((results) => {
-          this.foodList = results.products ?? []
-        })
-    }
-  }
-}
+const store = useFoodListStore()
+const { query, status, foodList } = storeToRefs(store)
+watch(query, () => {
+  console.log('query')
+  store.fetchData()
+})
 </script>
 <template>
-  <div class="mb-3">
-    <label class="form-label" for="query">Suchbegriff</label>
-    <input v-model="query" id="query" class="form-control" />
-  </div>
   <p v-if="status">{{ status }}</p>
   <div v-if="foodList">
     <div class="d-flex flex-row mb-3 flex-wrap">

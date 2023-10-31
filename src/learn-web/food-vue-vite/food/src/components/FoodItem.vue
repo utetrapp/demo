@@ -1,20 +1,19 @@
-<script>
-export default {
-  name: 'FoodItem',
-  props: {
-    title: { type: String, required: false },
-    score: { type: String, required: false },
-    url: { type: String, required: false }
-  },
-  computed: {
-    getScoreClass() {
-      let classes = 'badge text-end mb-1'
-      if (this.score.toUpperCase() === 'A') return classes + ' text-bg-success'
-      if (this.score.toUpperCase() >= 'D') return classes + ' text-bg-danger'
-      return classes + ' text-bg-secondary'
-    }
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  title: { type: String, required: false },
+  score: { type: String, required: false },
+  url: { type: String, required: false }
+})
+const getScoreClass = computed({
+  get() {
+    let classes = 'badge text-end mb-1'
+    if (props.score && props.score.toUpperCase() === 'A') return classes + ' text-bg-success'
+    if (props.score && props.score.toUpperCase() >= 'D') return classes + ' text-bg-danger'
+    return classes + ' text-bg-secondary'
   }
-}
+})
 </script>
 <template>
   <div class="card m-2 p-2" style="width: 10em">
